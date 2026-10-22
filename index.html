@@ -187,6 +187,14 @@ p{margin:0}
 .scripts code{font-family:var(--f-mono);font-size:11.5px;color:var(--accent);font-weight:600;overflow-wrap:anywhere}
 .scripts span{color:var(--muted)}
 
+/* ---------- пробоотборник ---------- */
+.sampler{margin:0;padding:12px 16px 10px;display:grid;gap:6px}
+.sampler svg{width:100%;height:auto;max-height:30vh;display:block}
+.sm-label{font-family:var(--f-mono);font-size:8.5px;fill:var(--muted)}
+.sm-accent{fill:var(--accent)}
+.sm-tick line{stroke:var(--line-2);stroke-width:1}
+.sampler figcaption{font-size:12px;color:var(--muted)}
+
 /* ---------- эффект 2: хаб интеграций ---------- */
 .bento{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:12px;align-items:stretch}
 .hub-tile{padding:14px 16px;display:grid;grid-template-rows:auto 1fr;gap:4px}
@@ -286,6 +294,7 @@ p{margin:0}
   .tl-card{padding:12px 12px 14px}
   .node{padding-bottom:8px}
   .case-row{padding:7px 10px}
+  .side{gap:8px}
 }
 @media (prefers-reduced-motion: reduce){
   .slide,.slide.on,.bar .sep i{transition:none}
@@ -301,7 +310,7 @@ p{margin:0}
     <span class="who">Андрей Козлов</span>
     <span>AI-автоматизация бизнес-процессов</span>
     <span class="sep" aria-hidden="true"><i id="progress"></i></span>
-    <span class="count" id="count">1 / 11</span>
+    <span class="count" id="count">1 / 12</span>
   </header>
 
   <main class="stage" id="stage">
@@ -319,7 +328,7 @@ p{margin:0}
             </div>
           </div>
           <div class="title-facts">
-            <div class="fact glass"><b data-count="5">5</b><span>кейсов на этих слайдах: от AI-помощника до системы рекомендаций</span></div>
+            <div class="fact glass"><b data-count="5">5</b><span>кейсов внедрения, от AI-помощника до системы рекомендаций, и исследовательский проект по 3D-печати</span></div>
             <div class="fact glass"><b data-count="1079">1&nbsp;079</b><span>диалогов прошло через AI-сервис поддержки на момент последней проверки</span></div>
             <div class="fact glass"><b data-count="22">22</b><span>управленческих показателя в BI-системе, собранной из двух источников данных</span></div>
           </div>
@@ -571,6 +580,60 @@ p{margin:0}
               <div class="metric"><b data-count="26615">26&nbsp;615</b><span>строк матрицы, каждая проверена</span></div>
               <div class="metric wide"><b><span data-count="479487">479&nbsp;487</span> → <span data-count="118770">118&nbsp;770</span></b><span>строк справочника применяемости после очистки и объединения дублей</span></div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7b. 3D-моделирование -->
+    <section class="slide" id="soil" aria-label="Проект: пробоотборник почвы для 3D-печати">
+      <div class="inner">
+        <div class="case">
+          <div class="story">
+            <div class="eyebrow">Исследовательский проект · 3D-моделирование <span class="client">собственная задумка</span> <span class="status test">в проработке</span></div>
+            <h2 class="h2">Пробоотборник почвы, который можно напечатать</h2>
+            <div class="blocks">
+              <div class="block"><h3>Идея</h3><p>Недорогой пробоотборник для 3D-принтера. Он забирает образец с нужной глубины и не перемешивает слои, чтобы участки можно было сравнивать по составу и влажности.</p></div>
+              <div class="block"><h3>Подход</h3><ul><li>Параметрическая модель в OpenSCAD: диаметр, глубина забора и толщина стенок задаются числами в начале файла</li><li>Под другую почву или глубину модель пересобирается без ручного черчения</li><li>Собрал скилл для AI-агента: проверяет стенки, допуски и нависания, экспортирует STL и 3MF</li></ul></div>
+              <div class="block"><h3>Статус</h3><p>Скилл для моделирования готов. Конструкция пробоотборника в проработке, дальше печать прототипа и полевой тест.</p></div>
+            </div>
+            <div class="chips"><span class="chip">OpenSCAD</span><span class="chip">параметрическое моделирование</span><span class="chip">STL · 3MF</span><span class="chip">скилл для AI-агента</span><span class="chip">3D-печать</span></div>
+          </div>
+          <div class="side">
+            <figure class="sampler glass">
+              <svg viewBox="0 0 260 200" role="img" aria-label="Схема: пробоотборник погружён в почву и забирает керн из трёх слоёв">
+                <rect x="0" y="56" width="214" height="44" style="fill:rgba(242,179,74,.16)"/>
+                <rect x="0" y="100" width="214" height="44" style="fill:rgba(242,179,74,.08)"/>
+                <rect x="0" y="144" width="214" height="44" style="fill:rgba(255,255,255,.035)"/>
+                <line x1="0" y1="56" x2="214" y2="56" style="stroke:var(--signal);stroke-width:1.5"/>
+                <text x="8" y="82" class="sm-label">гумус</text>
+                <text x="8" y="126" class="sm-label">подпочва</text>
+                <text x="8" y="170" class="sm-label">материнская порода</text>
+                <rect x="132" y="14" width="64" height="9" rx="4" style="fill:var(--surface-solid);stroke:var(--accent);stroke-width:1.5"/>
+                <rect x="160" y="23" width="8" height="33" style="fill:var(--surface-solid);stroke:var(--accent);stroke-width:1.5"/>
+                <rect x="153" y="58" width="5" height="102" style="fill:rgba(242,179,74,.45)"/>
+                <rect x="153" y="58" width="22" height="42" style="fill:rgba(242,179,74,.40)"/>
+                <rect x="153" y="100" width="22" height="44" style="fill:rgba(242,179,74,.22)"/>
+                <rect x="153" y="144" width="22" height="16" style="fill:rgba(255,255,255,.12)"/>
+                <path d="M150 56 V162 L164 178 L178 162 V56 Z" style="fill:none;stroke:var(--accent);stroke-width:2"/>
+                <line x1="226" y1="56" x2="226" y2="188" style="stroke:var(--line-2);stroke-width:1"/>
+                <g class="sm-tick"><line x1="222" y1="56" x2="230" y2="56"/><line x1="222" y1="100" x2="230" y2="100"/><line x1="222" y1="144" x2="230" y2="144"/><line x1="222" y1="188" x2="230" y2="188"/></g>
+                <text x="234" y="59" class="sm-label">0</text>
+                <text x="234" y="103" class="sm-label">10</text>
+                <text x="234" y="147" class="sm-label">20</text>
+                <text x="234" y="191" class="sm-label">30 см</text>
+                <line x1="178" y1="120" x2="198" y2="120" style="stroke:var(--accent);stroke-width:1"/>
+                <text x="132" y="10" class="sm-label sm-accent">керн без перемешивания слоёв</text>
+              </svg>
+              <figcaption>Схема идеи: трубка с режущим наконечником вынимает столбик почвы целиком.</figcaption>
+            </figure>
+            <ol class="flow glass" aria-label="Схема работы">
+              <li class="flow-title" style="list-style:none">От идеи до образца</li>
+              <li class="node"><span class="pulse"></span><div><b>Параметры задачи</b><small>глубина · диаметр · тип почвы</small></div></li>
+              <li class="node ai"><span class="pulse"></span><div><b>Модель в OpenSCAD</b><small>AI-агент пишет и пересобирает код</small></div></li>
+              <li class="node"><span class="pulse"></span><div><b>Проверки печатности</b><small>стенки · допуски · нависания</small></div></li>
+              <li class="node"><div><b>STL → печать → полевой тест</b><small>следующий этап</small></div></li>
+            </ol>
           </div>
         </div>
       </div>
